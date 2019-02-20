@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>임의의 이름</title>
+    <style>
+        body{
+            background-color:rgb(255,111,97)/*living_coral(color of the year 2019 pantone)*/;
+            box-sizing:border-box;
+            color:aliceblue;
+        }
+        h1{
+            color:black;
+            max-width:600px;
+            margin:0 auto;
+            text-align: center;
+            font-size:4rem;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-top:-42.4px;
+            margin-left:-258.065px;
+            transition:all 1.5s;
+        }
+        #top{
+            perspective: 300px;
+        }
+    </style>
+    <script>
+        function onload(){
+            onload_effect();
+            setTimeout(function(){
+                location.href="homepage.html"
+            }, 1700);
+        }
+        function onload_effect(){
+            var h1 = document.querySelector('h1');
+            h1.style.color='aliceblue';
+             h1.style.transform='translate(0,-343px) rotateZ(360deg) rotateX(360deg) scale(0.625)';
+        }
+    </script>
+</head>
+<body onload="onload()">
+      <h1>Travel for Hangil</h1>
+</body>
+</html>
