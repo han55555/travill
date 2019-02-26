@@ -4,65 +4,95 @@
     <meta charset="UTF-8">
     <title>임의의 이름</title>
     <link rel="stylesheet" href="home_style.css">
+    <link rel="stylesheet" href="hover_flip_effect.css">
     <style id="main_style">
-        #main_container{
+     /*#main_container{
             max-width:1300px;
             margin:0 auto;
-        }
-        /*hover flip effect */
-        .cardcontainer{
             position:relative;
-            top:80px;
-            left:130px;
-            max-width: 120px;
-            height:40px;
-        }
-        .card{
-            position:absolute;
-            width:100%;
-            height:100%;
-            transform-style:preserve-3d;
-            transition:all 0.5s ease;
-            text-align:center;
-            cursor:pointer;
-        }
-        .card_front{
-            position:absolute;
-            width:100%;
-            height:100%;
-            backface-visibility:hidden;
-            border-radius: 20px;
-            color:rgba(0,0,0,0.85);
-            background-color:aliceblue;
-        }
-        .card_back{
-            position:absolute;
-            width:100%;
-            height:100%;
-            backface-visibility:hidden;
-            overflow:hidden;
-            transform:rotateX(180deg);
-            border-radius: 20px;
-        }
-        .card:hover{
-            transform:rotateX(180deg);
-        }
-        /*flip card style*/
-        .card_front h3, .card_back h3{
-            margin:0;
-            font-size:1.15rem;
-            padding-top:5.8px;
-            padding-bottom: 6.2px;
-            border-radius: 20px;
-            text-align:center;
-        }
-        .card_front h3{
-            border:1.5px solid rgba(0,0,0,0.7);
-        }
-        .card_back h3{
-            /*border:1.5px solid aliceblue;*/
+            min-height:80vh;
+        }*/
+        body{
+            min-height: 600px;
         }
     </style>
+    <style id="notalone_opacity_function_style">
+        div{
+            transition-property: opacity, transform;
+            transition-duration: 0.8s, 1s;
+        }
+    </style>
+    <style>
+        /*각 카드들의 위치선정*/
+        #card_1{
+            top:80px;
+            left:230px;
+        }
+        #card_2{
+            top:130px;
+            left:1030px;
+        }
+        #card_3{
+            top:400px;
+            left:330px;
+        }
+    </style>
+    <script>
+        function notalone_opacity(self) {
+            if(self.value === 'open'){
+                self.style.transform='scale(1,1)';
+                var notAlone = document.querySelectorAll('div:not(.alone)');
+                var i = 0;
+                while(i<notAlone.length){
+                notAlone[i].style.opacity='1';
+                      i=i+1;
+                      };
+                
+                var a = 0;
+                while(a<notAlone.length){
+                    notAlone[a].style.pointerEvents='auto';
+                    a=a+1;
+                };
+                
+                var alone = document.querySelectorAll('.alone');
+                var b = 0;
+                while(b<alone.length){
+                    alone[b].classList.remove('alone');
+                    b=b+1;
+                };
+                
+                
+                self.value='close';
+            }
+            else{
+                /*클릭되지않은 나머지블록들 사라지게하기
+                opacity=0후, display=none*/
+                self.classList.add('alone');
+                document.querySelector('.alone>.card').classList.add('alone');
+                document.querySelector('.alone>.card_front').classList.add('alone');
+                document.querySelector('.alone>.card_back').classList.add('alone');
+
+                var notAlone = document.querySelectorAll('div:not(.alone)');
+                var i = 0;
+                while(i<notAlone.length){
+                notAlone[i].style.opacity='0';
+                      i=i+1;
+                      };
+                
+                /*여기까지 선택되지않은블록들 사라지게하기end*/
+                /*hover_flip_effect.css에 cardcontainer의 position relative로써 위치가 선정되어있어서 display='block'이 적용되면 사라진 블록들의 높이만큼 남는블록이 이동한다는 오류가 발생한다*/
+                document.querySelector('.alone').style.transform='scale(1.25,1.25)';
+                
+                var a = 0;
+                while(a<notAlone.length){
+                    notAlone[a].style.pointerEvents='none';
+                    a=a+1;
+                };
+               
+                self.value = 'open';
+            }
+        }
+    </script>
 </head>
 <body>
     <h1><a href="homepage.html">Travel for Hangil</a></h1>
@@ -79,15 +109,35 @@
         </ul>
     </nav>
     
-    <div id="main_container">
+       <!--1st item-->
        
-        <div class="cardcontainer">
+        <div class="cardcontainer" id="card_1" 
+         value="close" onclick="
+          notalone_opacity(this);
+           ">
             <div class="card">
                 <div class="card_front"><h3>오시리아역</h3></div>
                 <div class="card_back"><h3>2019.02.07</h3></div>
             </div>
         </div>
         
-    </div>
+        <div class="cardcontainer" id="card_2" value="close" onclick="
+          notalone_opacity(this);
+           ">
+            <div class="card">
+                <div class="card_front"><h3>UPDATE</h3></div>
+                <div class="card_back"><h3>2019.02.07</h3></div>
+            </div>
+        </div>
+        
+        <div class="cardcontainer" id="card_3" value="close" onclick="
+          notalone_opacity(this);
+           ">
+            <div class="card">
+                <div class="card_front"><h3>UPDATE</h3></div>
+                <div class="card_back"><h3>2019.02.07</h3></div>
+            </div>
+        </div>
+       <!--2nd item-->
 </body>
 </html>
