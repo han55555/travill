@@ -5,6 +5,7 @@
     <title>임의의 이름</title>
     <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="hover_flip_effect.css">
+    <link rel="stylesheet" href="second_items.css">
     <style id="main_style">
      /*#main_container{
             max-width:1300px;
@@ -13,7 +14,7 @@
             min-height:80vh;
         }*/
         body{
-            min-height: 600px;
+            min-height: 700px;
         }
     </style>
     <style id="notalone_opacity_function_style">
@@ -40,58 +41,6 @@
         .card_1_items li{
             top:215px;
             left:225px;
-        }
-    </style>
-    <style>
-        /*2nd item style*/
-        .card_1_items{
-            list-style: none;
-        }
-        .card_1_items li{
-            display:inline-block;
-            font-size:1.15rem;
-            border:1.2px solid aliceblue;
-            border-radius:10px;
-            padding-top:3px;
-            padding-bottom:5px;
-            padding-left:7px;
-            padding-right:7px;
-            pointer-events: none;
-            position:absolute;
-            z-index: -1;
-            pointer-events: none;
-            transition:all 1.5s;
-            opacity:0;
-            
-        }
-        /*아래코드는 li들이 펼쳐졌을때의 모습*/
-        /*card_1의 li들*/
-        .card_1_items.open li{
-            cursor:pointer;
-            pointer-events: auto;
-            opacity:1;
-            transition:all 1.5s;
-        }
-        .card_1_items.open li:nth-child(1){
-            transform:translateX(250px) translateY(-20px);
-        }
-        .card_1_items.open li:nth-child(2){
-            transform:translateX(450px) translateY(30px);
-        }
-        .card_1_items.open li:nth-child(3){
-            transform:translateX(300px) translateY(110px);
-        }
-        .card_1_items.open li:nth-child(4){
-            transform:translateX(700px) translateY(170px);
-        }
-        .card_1_items.open li:nth-child(5){
-            transform:translateX(70px) translateY(230px);
-        }
-        .card_1_items.open li:nth-child(6){
-            transform:translateX(500px) translateY(300px);
-        }
-        .card_1_items.open li:nth-child(7){
-            transform:translateX(900px) translateY(400px);
         }
     </style>
     <script>

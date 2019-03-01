@@ -1,0 +1,79 @@
+      
+       /*2nd item style(공통)*/
+
+        ul[class*="items"]{
+            list-style: none;
+        }
+        ul[class*="items"] li{
+            display:inline-block;
+            font-size:1.15rem;
+            border:1.2px solid aliceblue;
+            border-radius:10px;
+            padding-top:3px;
+            padding-bottom:5px;
+            padding-left:7px;
+            padding-right:7px;
+            pointer-events: none;
+            position:absolute;
+            z-index: -1;
+            pointer-events: none;
+            opacity:0;
+            -webkit-transition:all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    transition:all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        /*아래코드는 li들이 펼쳐졌을때의 모습*/
+        
+        .card_1_items.open li{
+            cursor:pointer;
+            pointer-events: auto;
+            opacity:1;
+        }
+        
+        /*card_1의 li들*/
+        
+        .card_1_items.open li:nth-child(1){
+            transform:translateX(250px) translateY(-20px);
+        }
+        .card_1_items.open li:nth-child(2){
+            transform:translateX(450px) translateY(30px);
+        }
+        .card_1_items.open li:nth-child(3){
+            transform:translateX(300px) translateY(110px);
+        }
+        .card_1_items.open li:nth-child(4){
+            transform:translateX(700px) translateY(170px);
+        }
+        .card_1_items.open li:nth-child(5){
+            transform:translateX(70px) translateY(230px);
+        }
+        .card_1_items.open li:nth-child(6){
+            transform:translateX(500px) translateY(300px);
+        }
+        .card_1_items.open li:nth-child(7){
+            transform:translateX(900px) translateY(400px);
+        }
+
+        /*card_2의 li들*/
+        
+        /*.card_2_items.open li:nth-child(1){
+            transform:translateX(250px) translateY(-20px);
+        }
+        .card_2_items.open li:nth-child(2){
+            transform:translateX(450px) translateY(30px);
+        }
+        .card_2_items.open li:nth-child(3){
+            transform:translateX(300px) translateY(110px);
+        }
+        .card_2_items.open li:nth-child(4){
+            transform:translateX(700px) translateY(170px);
+        }
+        .card_2_items.open li:nth-child(5){
+            transform:translateX(70px) translateY(230px);
+        }
+        .card_2_items.open li:nth-child(6){
+            transform:translateX(500px) translateY(300px);
+        }
+        .card_2_items.open li:nth-child(7){
+            transform:translateX(900px) translateY(400px);
+        }*/
