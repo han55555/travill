@@ -36,6 +36,63 @@
             top:400px;
             left:330px;
         }
+        /*2nd item들의 위치선정(close상태)*/
+        .card_1_items li{
+            top:215px;
+            left:225px;
+        }
+    </style>
+    <style>
+        /*2nd item style*/
+        .card_1_items{
+            list-style: none;
+        }
+        .card_1_items li{
+            display:inline-block;
+            font-size:1.15rem;
+            border:1.2px solid aliceblue;
+            border-radius:10px;
+            padding-top:3px;
+            padding-bottom:5px;
+            padding-left:7px;
+            padding-right:7px;
+            pointer-events: none;
+            position:absolute;
+            z-index: -1;
+            pointer-events: none;
+            transition:all 1.5s;
+            opacity:0;
+            
+        }
+        /*아래코드는 li들이 펼쳐졌을때의 모습*/
+        /*card_1의 li들*/
+        .card_1_items.open li{
+            cursor:pointer;
+            pointer-events: auto;
+            opacity:1;
+            transition:all 1.5s;
+        }
+        .card_1_items.open li:nth-child(1){
+            transform:translateX(250px) translateY(-20px);
+        }
+        .card_1_items.open li:nth-child(2){
+            transform:translateX(450px) translateY(30px);
+        }
+        .card_1_items.open li:nth-child(3){
+            transform:translateX(300px) translateY(110px);
+        }
+        .card_1_items.open li:nth-child(4){
+            transform:translateX(700px) translateY(170px);
+        }
+        .card_1_items.open li:nth-child(5){
+            transform:translateX(70px) translateY(230px);
+        }
+        .card_1_items.open li:nth-child(6){
+            transform:translateX(500px) translateY(300px);
+        }
+        .card_1_items.open li:nth-child(7){
+            transform:translateX(900px) translateY(400px);
+        }
     </style>
     <script>
         function notalone_opacity(self) {
@@ -92,6 +149,15 @@
                 self.value = 'open';
             }
         }
+        
+        function card_1(self){
+            if(self.value === 'close'){
+               document.querySelector('.card_1_items').classList.remove('open');
+               }
+            else{
+                document.querySelector('.card_1_items').classList.add('open');
+            }
+        }
     </script>
 </head>
 <body>
@@ -110,10 +176,10 @@
     </nav>
     
        <!--1st item-->
-       
+       <!--2019 items-->
         <div class="cardcontainer" id="card_1" 
          value="close" onclick="
-          notalone_opacity(this);
+          notalone_opacity(this); card_1(this);
            ">
             <div class="card">
                 <div class="card_front"><h3>오시리아역</h3></div>
@@ -138,6 +204,18 @@
                 <div class="card_back"><h3>2019.02.07</h3></div>
             </div>
         </div>
-       <!--2nd item-->
+        
+       <!---------2nd item----------->
+       
+       
+       <ul class="card_1_items">
+           <li>Text Note</li>
+           <li>time flow_1</li>
+           <li>time flow_2</li>
+           <li>time flow_3</li>
+           <li>time flow_4</li>
+           <li>time flow_5</li>
+           <li>time flow_6</li>
+       </ul>
 </body>
 </html>
