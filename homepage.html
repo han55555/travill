@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <script src="js/jquery-3.3.1.min.js"></script>
     <title>임의의 이름</title>
     <link rel="stylesheet" href="home_style.css">
     <link rel="stylesheet" href="hover_flip_effect.css">
@@ -13,9 +14,9 @@
             position:relative;
             min-height:80vh;
         }*/
-        body{
+        /*body{
             min-height: 700px;
-        }
+        }*/
     </style>
     <style id="notalone_opacity_function_style">
         div{
@@ -42,8 +43,107 @@
             top:215px;
             left:225px;
         }
+        .card_2_items li{
+            top:305px;
+            left:1025px;
+        }
     </style>
-    <script>
+    <style id="overlay_style">
+        #overlay{
+            background:rgba(0,0,0, .8);
+            width:100%;
+            height:100%;
+            position:absolute;
+            top:0px;
+            left:0;
+            display:none;
+            text-align:center;
+        }
+        #overlay img{
+            margin:6.5% auto 0;
+            height:550px;
+            border-radius:5px;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    <h1><a href="homepage.html">Travel for Hangil</a></h1>
+    <nav>
+        <ul>
+            <li><a href="2019.html">2019</a></li>
+            <li><a href="">2020</a></li>
+            <li><a href="">2021</a></li>
+            <li><a href="">2022</a></li>
+            <li><a href="">2023</a></li>
+            <li><a href="">2024</a></li>
+            <li><a href="">2025</a></li>
+            <li><a href="">2026</a></li>
+        </ul>
+    </nav>
+    
+       <!--1st item-->
+       <!--2019 items-->
+        <div class="cardcontainer" id="card_1" 
+         value="close" onclick="
+          notalone_opacity(this); card_1(this);
+           ">
+            <div class="card">
+                <div class="card_front"><h3>오시리아역</h3></div>
+                <div class="card_back"><h3>2019.02.07</h3></div>
+            </div>
+        </div>
+        
+        <div class="cardcontainer" id="card_2" value="close" onclick="
+          notalone_opacity(this); card_2(this);
+           ">
+            <div class="card">
+                <div class="card_front"><h3>UPDATE</h3></div>
+                <div class="card_back"><h3>UPDATE</h3></div>
+            </div>
+        </div>
+        
+        <div class="cardcontainer" id="card_3" value="close" onclick="
+          notalone_opacity(this);
+           ">
+            <div class="card">
+                <div class="card_front"><h3>UPDATE</h3></div>
+                <div class="card_back"><h3>UPDATE</h3></div>
+            </div>
+        </div>
+        
+       <!---------2nd item----------->
+       
+       
+       <ul class="card_1_items">
+           <li>Text Note</li>
+           <li><a href="osiria/osiria_131910.jpg">time flow_1</a></li>
+           <li><a href="osiria/osiria_133134.jpg">time flow_2</a></li>
+           <li><a href="osiria/osiria_133552.jpg">time flow_3</a></li>
+           <li><a href="osiria/osiria_141444.jpg">time flow_4</a></li>
+           <li><a href="osiria/osiria_141937.jpg">time flow_5</a></li>
+           <li><a href="osiria/osiria_160340.jpg">time flow_6</a></li>
+           <li><a href="osiria/osiria_173735.jpg">time flow_7</a></li>
+           <li><a href="osiria/osiria_174344.jpg">time flow_8</a></li>
+           <li><a href="osiria/osiria_174617.jpg">time flow_9</a></li>
+       </ul>
+       
+       <ul class="card_2_items">
+           <li>Text Note</li>
+           <li>time flow_1</li>
+           <li>time flow_2</li>
+           <li>time flow_3</li>
+           <li>time flow_4</li>
+           <li>time flow_5</li>
+           <li>time flow_6</li>
+       </ul>
+       
+       
+       <!--SCRIPT AREA-->
+       
+       
+       <script>
         function notalone_opacity(self) {
             if(self.value === 'open'){
                 self.style.transform='scale(1,1)';
@@ -67,6 +167,7 @@
                     b=b+1;
                 };
                 
+                document.querySelector('#overlay').classList.add('alone');
                 
                 self.value='close';
             }
@@ -99,6 +200,9 @@
             }
         }
         
+    </script>
+    <script id="second_items_appear_event">
+        /*새로운카드가 만들어질때마다 onclick이벤트에 공통적으로 적용하는 opacity함수 뒤에 개별적으로 적용하는 함수들이다*/
         function card_1(self){
             if(self.value === 'close'){
                document.querySelector('.card_1_items').classList.remove('open');
@@ -107,64 +211,41 @@
                 document.querySelector('.card_1_items').classList.add('open');
             }
         }
+        
+        function card_2(self){
+            if(self.value === 'close'){
+                document.querySelector('.card_2_items').classList.remove('open');
+            }
+            else{
+                document.querySelector('.card_2_items').classList.add('open');
+            }
+        }
     </script>
-</head>
-<body>
-    <h1><a href="homepage.html">Travel for Hangil</a></h1>
-    <nav>
-        <ul>
-            <li><a href="2019.html">2019</a></li>
-            <li><a href="">2020</a></li>
-            <li><a href="">2021</a></li>
-            <li><a href="">2022</a></li>
-            <li><a href="">2023</a></li>
-            <li><a href="">2024</a></li>
-            <li><a href="">2025</a></li>
-            <li><a href="">2026</a></li>
-        </ul>
-    </nav>
-    
-       <!--1st item-->
-       <!--2019 items-->
-        <div class="cardcontainer" id="card_1" 
-         value="close" onclick="
-          notalone_opacity(this); card_1(this);
-           ">
-            <div class="card">
-                <div class="card_front"><h3>오시리아역</h3></div>
-                <div class="card_back"><h3>2019.02.07</h3></div>
-            </div>
-        </div>
-        
-        <div class="cardcontainer" id="card_2" value="close" onclick="
-          notalone_opacity(this);
-           ">
-            <div class="card">
-                <div class="card_front"><h3>UPDATE</h3></div>
-                <div class="card_back"><h3>2019.02.07</h3></div>
-            </div>
-        </div>
-        
-        <div class="cardcontainer" id="card_3" value="close" onclick="
-          notalone_opacity(this);
-           ">
-            <div class="card">
-                <div class="card_front"><h3>UPDATE</h3></div>
-                <div class="card_back"><h3>2019.02.07</h3></div>
-            </div>
-        </div>
-        
-       <!---------2nd item----------->
-       
-       
-       <ul class="card_1_items">
-           <li>Text Note</li>
-           <li>time flow_1</li>
-           <li>time flow_2</li>
-           <li>time flow_3</li>
-           <li>time flow_4</li>
-           <li>time flow_5</li>
-           <li>time flow_6</li>
-       </ul>
+       <script id="overlay_jquery">
+        var $overlay = $('<div class="alone" id="overlay"></div>');
+var $image = $("<img>");
+
+//An image to overlay
+$overlay.append($image);
+
+//Add overlay
+$("body").append($overlay);
+
+  //click the image and a scaled version of the full size image will appear
+  $("ul[class*='items'] a").click( function(event) {
+    event.preventDefault();
+    var imageLocation = $(this).attr("href");
+
+    //update overlay with the image linked in the link
+    $image.attr("src", imageLocation);
+
+    //show the overlay
+    $overlay.show();
+  } );
+
+  $("#overlay").click(function() {
+    $( "#overlay" ).hide();
+  });
+    </script>
 </body>
 </html>

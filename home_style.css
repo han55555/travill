@@ -1,3 +1,7 @@
+html,body{
+            height: 100%;
+            margin:0;
+        }
 body{
             background-color:rgb(255,111,97)/*living_coral(color of the year 2019 pantone)*/;
             box-sizing:border-box;     color:aliceblue;
@@ -8,6 +12,7 @@ h1{
     margin:0 auto;
     font-size:2.5rem;
     margin-bottom: 25px;
+    padding-top:8px;
 }
 a{
     text-decoration: none;

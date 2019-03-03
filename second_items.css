@@ -1,6 +1,6 @@
       
        /*2nd item style(공통)*/
-
+       /*새로운 li들의 위치를 지정할땐 opacity:0부분을 주석처리하고 클릭을해서 모두 나와있는상태에서 숫자만 바꾸면 편하다*/
         ul[class*="items"]{
             list-style: none;
         }
@@ -13,10 +13,10 @@
             padding-bottom:5px;
             padding-left:7px;
             padding-right:7px;
-            pointer-events: none;
+            z-index:-1;
+            /*pointer-events: none;
+            z-index때문에 필요없다고 생각해서 주석처리함 */
             position:absolute;
-            z-index: -1;
-            pointer-events: none;
             opacity:0;
             -webkit-transition:all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                     transition:all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -24,12 +24,14 @@
         
         /*아래코드는 li들이 펼쳐졌을때의 모습*/
         
-        .card_1_items.open li{
-            cursor:pointer;
-            pointer-events: auto;
+        ul[class*="items"].open li{
+            /*cursor: pointer;*/
+            z-index:0;
             opacity:1;
         }
-        
+ul[class*="items"].open a{
+    z-index:1;
+}
         /*card_1의 li들*/
         
         .card_1_items.open li:nth-child(1){
@@ -42,38 +44,47 @@
             transform:translateX(300px) translateY(110px);
         }
         .card_1_items.open li:nth-child(4){
-            transform:translateX(700px) translateY(170px);
+            transform:translateX(500px) translateY(150px);
         }
         .card_1_items.open li:nth-child(5){
-            transform:translateX(70px) translateY(230px);
+            transform:translateX(700px) translateY(170px);
         }
         .card_1_items.open li:nth-child(6){
-            transform:translateX(500px) translateY(300px);
+            transform:translateX(70px) translateY(230px);
         }
         .card_1_items.open li:nth-child(7){
+            transform:translateX(260px) translateY(250px);
+        }
+        .card_1_items.open li:nth-child(8){
+            transform:translateX(200px) translateY(380px);
+        }
+        .card_1_items.open li:nth-child(9){
+            transform:translateX(550px) translateY(300px);
+        }
+        .card_1_items.open li:nth-child(10){
             transform:translateX(900px) translateY(400px);
         }
 
         /*card_2의 li들*/
         
-        /*.card_2_items.open li:nth-child(1){
-            transform:translateX(250px) translateY(-20px);
+        .card_2_items.open li:nth-child(1){
+            transform:translateX(-250px) translateY(-125px);
         }
         .card_2_items.open li:nth-child(2){
-            transform:translateX(450px) translateY(30px);
+            transform:translateX(-650px) translateY(-70px);
         }
         .card_2_items.open li:nth-child(3){
-            transform:translateX(300px) translateY(110px);
+            transform:translateX(-450px) translateY(0);
         }
         .card_2_items.open li:nth-child(4){
-            transform:translateX(700px) translateY(170px);
+            transform:translateX(-800px) translateY(70px);
         }
         .card_2_items.open li:nth-child(5){
-            transform:translateX(70px) translateY(230px);
+            transform:translateX(-550px) translateY(150px);
         }
         .card_2_items.open li:nth-child(6){
-            transform:translateX(500px) translateY(300px);
+            transform:translateX(-80px) translateY(130px);
         }
         .card_2_items.open li:nth-child(7){
-            transform:translateX(900px) translateY(400px);
-        }*/
+            transform:translateX(-320px) translateY(300px);
+        }
